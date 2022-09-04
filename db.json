@@ -1,0 +1,41 @@
+{
+    "books": [
+        {
+            "id": 1,
+            "name": "Yaban",
+            "author": "Yakup Kadri",
+            "isbn": "1122121134",
+            "categoryId": 1
+        },
+
+        {
+            "id": 2,
+            "name": "suç ve ceza",
+            "author": "Dostoyevski",
+            "isbn": "1122121135",
+            "categoryId": 2
+        },
+
+        {
+            "id": 3,
+            "name": "sarı çizmeli mehmet ağa",
+            "author": "xxxxxx",
+            "isbn": "1122121146",
+            "categoryId": 3
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "roman"
+        },
+        {
+            "id": 2,
+            "name": "hikaye"
+        },
+        {
+            "id": 3,
+            "name": "deneme"
+        }
+    ]
+}
