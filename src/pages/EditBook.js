@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import axios from "axios";
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
+import Modal from "../components/Modal";
+import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 
 
 const EditBook = (props) => {
@@ -14,6 +16,7 @@ const EditBook = (props) => {
     const [isbn, setIsbn] = useState("")
     const [category, setCategory] = useState("")
     const [categories, setCategories] = useState(null)
+    const [showModal, setShowModal] = useState("false")
 
     useEffect(() => {
         axios.get(`http://localhost:3004/books/${params.bookId}`)
@@ -36,6 +39,12 @@ const EditBook = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setShowModal(true);
+
+    };
+
+    const editBook = () => {
+
         if (bookname === "" || author === "" || category === "") {
 
             alert("Kitap adı, Yazar, Kategori boş bırakılamaz");
@@ -51,13 +60,17 @@ const EditBook = (props) => {
 
         axios.put(`http://localhost:3004/books/${params.bookId}`, updatedBook)
             .then(res => {
+
+                setShowModal(false);
                 navigate("/")
 
             })
             .catch((err) => console.log("edit error", err));
 
-    };
 
+
+
+    }
 
     if (categories === null) {
         return <Loading />
@@ -118,22 +131,31 @@ const EditBook = (props) => {
                         </div>
                         <div className="my-5 d-flex justify-content-center">
                             <button type="submit" className="btn btn-primary w-25">KAYDET</button>
-                            
-                            <button 
-                            type="button"
-                            onClick={()=> navigate("/")} 
-                            className="btn btn-outline-danger w-25 mx-2">
+
+                            <button
+                                type="button"
+                                onClick={() => navigate("/")}
+                                className="btn btn-outline-danger w-25 mx-2">
                                 VAZGEÇ </button>
                         </div>
 
-                       
+
                     </div>
-                   
+
                 </form>
 
             </div>
 
+            {showModal === true && (
+                <Modal
+                title="Kitap güncelleme"
+                info={`${bookname}  kitabı güncellensin mi ?`}
+                    onCancel={() => setShowModal(false)}
+                    onConfirm={() => editBook()} 
+                    
+                    />
 
+            )}
 
         </div>
 
