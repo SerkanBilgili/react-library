@@ -1,13 +1,6 @@
 {
   "books": [
     {
-      "id": "1",
-      "name": "Yaban",
-      "author": "Yakup Kadri",
-      "isbn": "1122121134",
-      "categoryId": "1"
-    },
-    {
       "id": "2",
       "name": "suç ve ceza",
       "author": "Dostoyevski",
@@ -16,17 +9,38 @@
     },
     {
       "id": 1662579491638,
-      "name": "Melekler ve Şeytanlar",
+      "name": "Melekler ve Şeytanlar 2",
       "author": "DON BROWN",
-      "isbn": "345345436246",
-      "categoryId": "1"
+      "categoryId": "1",
+      "isbn": "345345436246"
     },
     {
-      "id": 1662579517783,
-      "name": "Da Vinci Şifresi",
-      "author": "DON BROWN",
-      "isbn": "",
+      "id": 1663267527566,
+      "name": "kaşağı",
+      "author": "ömerseyfettin",
+      "isbn": "we3r343r43",
       "categoryId": "3"
+    },
+    {
+      "id": 1663267556454,
+      "name": "sefiller",
+      "author": "victor Hugo",
+      "categoryId": "3",
+      "isbn": "4535345234"
+    },
+    {
+      "id": 1663615944681,
+      "name": "aegvaer",
+      "author": "vre",
+      "isbn": "raegf",
+      "categoryId": "3"
+    },
+    {
+      "id": 1663615951751,
+      "name": "adfgrqe",
+      "author": "gfadv",
+      "isbn": "av",
+      "categoryId": "2"
     }
   ],
   "categories": [

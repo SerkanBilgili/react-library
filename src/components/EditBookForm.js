@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 
-const AddBookForm = (props) => {
 
-    const navigate = useNavigate();
+
+const EditBookForm = (props) => {
+    const navigate=useNavigate();
     const [categories, setCategories] = useState(null);
     const [bookname, setBookname] = useState(null);
     const [author, setAuthor] = useState(null);
@@ -42,12 +43,11 @@ const AddBookForm = (props) => {
         axios
             .post("http://localhost:3004/books", newBook)
             .then((res) => {
-                console.log("kitap ekle", res);
+                console.log("kitap ekle",res);
                 setBookname("")
                 setAuthor("")
                 setIsbn("")
                 setCategory("")
-                
                 navigate("/");
 
             })
@@ -103,7 +103,7 @@ const AddBookForm = (props) => {
                             <option value={""} selected>Kategori seçin</option>
 
                             {categories.map((cat) => {
-                                return (<option key={cat.id} value={cat.id}>{cat.name}</option>
+                                return (<option value={cat.id}>{cat.name}</option>
                                 )
                             })
                             }
@@ -111,7 +111,7 @@ const AddBookForm = (props) => {
 
                     </div>
                     <div className="my-5 d-flex justify-content-center">
-                        <button type="submit" className="my-3 btn btn-primary w-50">Kaydet</button>
+                        <button type="submit" className="my-3 btn btn-primary w-50">EDIT</button>
                     </div>
                 </div>
 
@@ -124,4 +124,4 @@ const AddBookForm = (props) => {
 
 };
 
-export default AddBookForm;
+export default EditBookForm;
